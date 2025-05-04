@@ -36,3 +36,19 @@ async function getTaskInput(taskNumber) {
 
   return { title: title.trim(), description: description.trim(), status };
 }
+/**
+ * Handles the task entry process for two tasks.
+ */
+async function handleAddTasks() {
+    const tasks = [];
+    for (let i = 1; i <= 2; i++) {
+      const task = await getTaskInput(i);
+      if (!task) {
+        alert("Task entry cancelled or invalid. No tasks were added.");
+        return;
+      }
+      tasks.push(task);
+    }
+    // Store or use the tasks array as needed
+    console.log("Tasks entered:", tasks);
+  
