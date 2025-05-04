@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="kanban-app">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="logo">
+          <span class="logo-bars">
+            <span class="bar bar1"></span>
+            <span class="bar bar2"></span>
+            <span class="bar bar3"></span>
+          </span>
+          <span class="logo-text">kanban</span>
+        </div>
+        <div class="boards">
+          <h4>ALL BOARDS (1)</h4>
+          <button class="board-btn active">Launch Career</button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="board-header">
+          <h2>Launch Career</h2>
+        </header>
+        <section class="columns">
+          <!-- TODO Column -->
+          <div class="column">
+            <div class="column-header todo">
+              <span class="dot"></span>
+              <h4>TODO <span class="count">(4)</span></h4>
+            </div>
+            <div class="tasks">
+              <div class="task">Launch Epic Career 🚀</div>
+              <div class="task">Conquer React 🧑‍💻</div>
+              <div class="task">Understand Databases ⚙️</div>
+              <div class="task">Crush Frameworks 🟩</div>
+            </div>
+          </div>
+          <!-- DOING Column -->
+          <div class="column">
+            <div class="column-header doing">
+              <span class="dot"></span>
+              <h4>DOING <span class="count">(2)</span></h4>
+            </div>
+            <div class="tasks">
+              <div class="task">Master JavaScript 💛</div>
+              <div class="task">Never Give Up 🏆</div>
+            </div>
+          </div>
+          <!-- DONE Column -->
+          <div class="column">
+            <div class="column-header done">
+              <span class="dot"></span>
+              <h4>DONE <span class="count">(2)</span></h4>
+            </div>
+            <div class="tasks">
+              <div class="task">Explore ES6 Features 🚀</div>
+              <div class="task">Have fun 🥳</div>
+            </div>
+          </div>
+        </section>
+        <button id="add-tasks-btn" class="board-btn" style="margin: 16px 0">
+          Add Tasks
+        </button>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

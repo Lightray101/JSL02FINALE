@@ -1,0 +1,278 @@
+:root {
+  --sidebar-bg: #fff;
+  --sidebar-accent: #635fc7;
+  --main-bg: #f4f7fd;
+  --column-bg: #f4f7fd;
+  --task-bg: #fff;
+  --task-shadow: 0 2px 8px rgba(54, 78, 126, 0.1);
+  --dot-todo: #49c4e5;
+  --dot-doing: #8471f2;
+  --dot-done: #67e2ae;
+  --text-dark: #2b2c37;
+  --text-light: #828fa3;
+  --border-radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--main-bg);
+  color: var(--text-dark);
+}
+
+.kanban-app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  background: var(--sidebar-bg);
+  width: 260px;
+  padding: 32px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e4ebfa;
+  min-height: 100vh;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 0 32px 32px 32px;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #20212c;
+  gap: 12px;
+}
+
+.logo-bars {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bar {
+  display: inline-block;
+  width: 12px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.bar1 {
+  background: #635fc7;
+  opacity: 1;
+}
+.bar2 {
+  background: #a8a4ff;
+  opacity: 0.75;
+}
+.bar3 {
+  background: #a8a4ff;
+  opacity: 0.5;
+}
+
+.logo-text {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  color: #20212c;
+  letter-spacing: -1px;
+}
+
+.boards {
+  padding: 0 32px;
+}
+
+.board-btn {
+  width: 100%;
+  background: var(--sidebar-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 12px 0;
+  margin-top: 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.board-btn.active,
+.board-btn:hover {
+  background: #a8a4ff;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--main-bg);
+  min-width: 0;
+}
+
+.board-header {
+  padding: 32px 0 24px 32px;
+  background: var(--main-bg);
+}
+
+.board-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.columns {
+  display: flex;
+  gap: 32px;
+  padding: 0 32px 32px 32px;
+  flex: 1;
+  min-width: 0;
+}
+
+.column {
+  background: none;
+  flex: 1 1 0;
+  min-width: 260px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.column-header .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.column-header.todo .dot {
+  background: var(--dot-todo);
+}
+.column-header.doing .dot {
+  background: var(--dot-doing);
+}
+.column-header.done .dot {
+  background: var(--dot-done);
+}
+
+.column-header h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.column-header .count {
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.task {
+  background: var(--task-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--task-shadow);
+  padding: 20px 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.task:hover {
+  box-shadow: 0 4px 16px rgba(54, 78, 126, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .columns {
+    gap: 16px;
+    padding: 0 8px 16px 8px;
+  }
+  .sidebar {
+    width: 180px;
+    padding: 16px 0 0 0;
+  }
+  .logo,
+  .boards {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .columns {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .column {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .kanban-app {
+    flex-direction: column;
+  }
+  .sidebar {
+    flex-direction: row;
+    width: 100%;
+    min-height: unset;
+    border-right: none;
+    border-bottom: 1px solid #e4ebfa;
+    padding: 0;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    padding: 16px;
+    font-size: 1.2rem;
+  }
+  .boards {
+    padding: 0 16px 16px 16px;
+  }
+  .main-content {
+    padding-top: 0;
+  }
+  .board-header {
+    padding: 16px 0 16px 16px;
+  }
+  .columns {
+    padding: 0 8px 16px 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  .board-header h2 {
+    font-size: 1.1rem;
+  }
+  .task {
+    font-size: 0.95rem;
+    padding: 14px 8px;
+  }
+  .column-header h4 {
+    font-size: 0.9rem;
+  }
+}

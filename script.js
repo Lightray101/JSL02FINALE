@@ -1,0 +1,38 @@
+/**
+ * Prompts the user for a task's details and validates the input.
+ * @param {number} taskNumber - The task number (for display).
+ * @returns {object|null} - The task object or null if cancelled/invalid.
+ */
+async function getTaskInput(taskNumber) {
+  let title = prompt(`Enter task ${taskNumber} title:`);
+  if (!title || !title.trim()) {
+    alert("Title cannot be empty.");
+    return null;
+  }
+
+  let description = prompt(`Enter task ${taskNumber} description:`);
+  if (!description || !description.trim()) {
+    alert("Description cannot be empty.");
+    return null;
+  }
+
+  // Keep prompting for status until a valid value is entered
+  let status;
+  while (true) {
+    status = prompt(
+      `Enter task ${taskNumber} status ('todo', 'doing', or 'done'):`
+    );
+    if (!status) {
+      alert("Status cannot be empty.");
+      continue;
+    }
+    status = status.trim().toLowerCase();
+    if (["todo", "doing", "done"].includes(status)) {
+      break;
+    } else {
+      alert("Invalid status. Please enter 'todo', 'doing', or 'done'.");
+    }
+  }
+
+  return { title: title.trim(), description: description.trim(), status };
+}
