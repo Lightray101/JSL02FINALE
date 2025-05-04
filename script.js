@@ -63,3 +63,9 @@ async function handleAddTasks() {
 
   alert("Tasks successfully added! Check the console for details.");
 }
+// Attach event listener to the button after DOM is loaded
+window.addEventListener("DOMContentLoaded", function () {
+  document
+    .getElementById("add-tasks-btn")
+    .addEventListener("click", handleAddTasks);
+});
