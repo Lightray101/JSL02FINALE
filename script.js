@@ -69,3 +69,4 @@ window.addEventListener("DOMContentLoaded", function () {
     .getElementById("add-tasks-btn")
     .addEventListener("click", handleAddTasks);
 });
+status = status.trim().toLowerCase();
